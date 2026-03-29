@@ -1,7 +1,7 @@
 /* CSS Reset & Defaults */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
-body { min-height: 100vh; text-rendering: optimizeSpeed; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+body { min-height: 100vh; text-rendering: optimizeSpeed; line-height: 1.6; -webkit-font-smoothing: antialiased; background: var(--surface); color: var(--on-surface); font-family: var(--font-body); }
 img, picture, video, canvas, svg { display: block; max-width: 100%; }
 input, button, textarea, select { font: inherit; }
 p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
