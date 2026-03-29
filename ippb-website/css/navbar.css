@@ -62,7 +62,9 @@
 .navbar-menu > li > a.active { color: var(--primary); border-bottom-color: var(--primary-mid); }
 
 /* Hide mobile-only actions on desktop */
-.navbar-menu > li.navbar-menu-actions { display: none; }
+@media (min-width: 769px) {
+  .navbar-menu > li.navbar-menu-actions { display: none; }
+}
 
 .navbar-actions {
   display: flex;
@@ -168,11 +170,11 @@
 
   /* Show mobile CTA buttons */
   .navbar-menu > li.navbar-menu-actions {
-    display: flex !important;
+    display: flex;
     flex-direction: column;
     gap: var(--spacing-sm);
-    margin-top: var(--spacing-xl);
-    padding-top: var(--spacing-lg);
+    margin-top: auto;
+    padding-top: var(--spacing-xl);
     border-top: 2px solid var(--surface-high);
   }
   .navbar-menu > li.navbar-menu-actions .btn {
@@ -180,7 +182,7 @@
     justify-content: center;
     text-align: center;
     min-width: unset;
-    padding: 14px 20px;
+    padding: 16px 20px;
     font-size: 15px;
   }
 }

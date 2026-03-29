@@ -161,6 +161,11 @@ export function formatDate(timestamp) {
 
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
+  // Safety: clear any stuck iOS scroll lock from previous session
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+
   initScrollReveal();
   initNavbar();
   initSidebarToggle();
