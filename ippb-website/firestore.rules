@@ -1,0 +1,72 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAuth() { return request.auth != null; }
+    function isOwner(uid) { return request.auth.uid == uid; }
+    function isAdmin() {
+      return isAuth() &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
+    }
+
+    // Users
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow create: if isOwner(userId);
+      allow update: if isOwner(userId) || isAdmin();
+      allow delete: if false;
+    }
+
+    // Accounts
+    match /accounts/{accountId} {
+      allow read: if isAuth() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isAuth() && request.resource.data.userId == request.auth.uid;
+      allow update: if isAuth() && (resource.data.userId == request.auth.uid || isAdmin());
+    }
+
+    // Transactions
+    match /transactions/{txnId} {
+      allow read: if isAuth() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isAuth();
+    }
+
+    // Service Requests
+    match /serviceRequests/{reqId} {
+      allow read: if isAuth() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isAuth();
+      allow update: if isAdmin();
+    }
+
+    // Support Tickets
+    match /supportTickets/{ticketId} {
+      allow read: if isAuth() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isAuth();
+      allow update: if isAdmin();
+    }
+
+    // Grievances — public create, admin read/update
+    match /grievances/{gId} {
+      allow create: if true;
+      allow read: if true; // for tracking by refId
+      allow update: if isAdmin();
+    }
+
+    // Schemes — public read, admin write
+    match /schemes/{schemeId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Contact messages — public create, admin read
+    match /contactMessages/{msgId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Audit logs — admin read only, system write
+    match /auditLogs/{logId} {
+      allow create: if isAuth();
+      allow read: if isAdmin();
+    }
+  }
+}

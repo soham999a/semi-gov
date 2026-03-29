@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - IPPB Service Center</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/accessibility.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .contact-page { max-width: var(--max-width); margin: 0 auto; padding: var(--spacing-3xl) var(--spacing-md); display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-3xl); }
+    .contact-info-card { background: var(--bg-white); border-radius: var(--radius-lg); padding: var(--spacing-xl); border: 1px solid var(--bg-lighter); margin-bottom: var(--spacing-md); display: flex; align-items: flex-start; gap: var(--spacing-md); }
+    .contact-info-icon { font-size: 28px; flex-shrink: 0; }
+    .contact-info-label { font-size: 13px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .contact-info-value { font-size: 16px; font-weight: 500; color: var(--text-dark); }
+    .map-placeholder { background: var(--bg-lighter); border-radius: var(--radius-lg); height: 300px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); font-size: 16px; margin-top: var(--spacing-md); border: 1px solid var(--bg-lighter); }
+    @media (max-width: 768px) { .contact-page { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <nav class="navbar" role="navigation">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#1B3A7D"/><path d="M8 26V10h6l4 10 4-10h6v16h-4V16l-3.5 10h-5L12 16v10H8z" fill="white"/></svg>
+        <span>IPPB</span>
+      </a>
+      <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="navbar-menu" id="navbar-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <div class="navbar-actions">
+        <a href="login.html" class="btn btn-primary btn-sm">Login / Register</a>
+      </div>
+    </div>
+  </nav>
+
+  <section style="background:linear-gradient(135deg,var(--primary-blue),var(--secondary-teal));color:white;padding:var(--spacing-2xl) var(--spacing-md);text-align:center;">
+    <h1 style="color:white;margin-bottom:var(--spacing-sm);">Contact Us</h1>
+    <p style="opacity:0.9;font-size:18px;">We're here to help you with all your banking needs</p>
+  </section>
+
+  <main id="main-content">
+    <div class="contact-page">
+      <!-- Contact Form -->
+      <div>
+        <h2 style="margin-bottom:var(--spacing-xl);">Send Us a Message</h2>
+        <form id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="contact-name">Full Name *</label>
+            <input type="text" id="contact-name" class="form-input" placeholder="Your full name" required aria-describedby="contact-name-error">
+            <span class="form-error" id="contact-name-error" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="contact-phone">Mobile Number *</label>
+            <input type="tel" id="contact-phone" class="form-input" placeholder="10-digit mobile number" maxlength="10" required aria-describedby="contact-phone-error">
+            <span class="form-error" id="contact-phone-error" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Email Address</label>
+            <input type="email" id="contact-email" class="form-input" placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label for="contact-category">Category</label>
+            <select id="contact-category" class="form-input">
+              <option value="general">General Inquiry</option>
+              <option value="account">Account Issue</option>
+              <option value="service">Service Request</option>
+              <option value="complaint">Complaint</option>
+              <option value="feedback">Feedback</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message *</label>
+            <textarea id="contact-message" class="form-input" placeholder="How can we help you?" required rows="5" aria-describedby="contact-message-error"></textarea>
+            <span class="form-error" id="contact-message-error" role="alert"></span>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h2 style="margin-bottom:var(--spacing-xl);">Get in Touch</h2>
+        <div class="contact-info-card">
+          <span class="contact-info-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primary-mid)"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </span>
+          <div>
+            <div class="contact-info-label">Phone</div>
+            <div class="contact-info-value">1800-XXX-XXXX (Toll Free)</div>
+            <div class="contact-info-value">+91 XXXXX XXXXX</div>
+          </div>
+        </div>
+        <div class="contact-info-card">
+          <span class="contact-info-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primary-mid)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </span>
+          <div>
+            <div class="contact-info-label">Email</div>
+            <div class="contact-info-value">support@ippb.gov.in</div>
+          </div>
+        </div>
+        <div class="contact-info-card">
+          <span class="contact-info-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primary-mid)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </span>
+          <div>
+            <div class="contact-info-label">Address</div>
+            <div class="contact-info-value">[Service Center Address]<br>[City, State - Pincode]</div>
+          </div>
+        </div>
+        <div class="contact-info-card">
+          <span class="contact-info-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primary-mid)"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+          </span>
+          <div>
+            <div class="contact-info-label">Business Hours</div>
+            <div class="contact-info-value">Monday – Saturday: 9:00 AM – 5:00 PM</div>
+            <div class="contact-info-value" style="color:var(--text-secondary);font-size:14px;">Closed on Sundays &amp; Public Holidays</div>
+          </div>
+        </div>
+
+        <div class="map-placeholder" role="img" aria-label="Service center location map">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="var(--text-muted)" style="margin-bottom:8px;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span>Map Loading...</span><br>
+          <small style="margin-top:8px;display:block;">Replace with Google Maps embed</small>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <span class="footer-logo">IPPB</span>
+        <p>India Post Payments Bank — Bringing banking to every doorstep across India.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#banking">Banking</a></li>
+          <li><a href="services.html#aeps">AEPS</a></li>
+          <li><a href="services.html#schemes">Gov Schemes</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="register.html">Open Account</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <ul>
+          <li> 1800-XXX-XXXX</li>
+          <li> support@ippb.gov.in</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 India Post Payments Bank. All rights reserved.</span>
+      <span>Regulated by Reserve Bank of India</span>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/ui.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

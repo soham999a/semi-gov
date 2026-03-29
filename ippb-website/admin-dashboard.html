@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — IPPB Control Center</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/accessibility.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <style>
+    body { background: #0a0f1e; color: rgba(255,255,255,0.75); font-family: var(--font-body); }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+  </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="admin-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="admin-sidebar" id="admin-sidebar" aria-label="Admin navigation">
+    <div class="admin-sidebar-logo">
+      <div class="logo-mark">
+        <svg width="20" height="20" viewBox="0 0 34 34" fill="none"><path d="M7 25V9h5.5l4.5 9.5L21.5 9H27v16h-4V15.5L19.5 25h-5L11 15.5V25H7z" fill="white"/></svg>
+      </div>
+      <div>
+        <div class="logo-text">IPPB Admin</div>
+        <div class="logo-sub">Control Center</div>
+      </div>
+    </div>
+
+    <nav class="admin-nav">
+      <div class="admin-nav-section">
+        <div class="admin-nav-label">Overview</div>
+        <a href="#" class="active" data-admin-section="overview">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+          Dashboard
+        </a>
+      </div>
+      <div class="admin-nav-section">
+        <div class="admin-nav-label">Management</div>
+        <a href="#" data-admin-section="users">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          Users
+          <span class="nav-badge" id="badge-users">0</span>
+        </a>
+        <a href="#" data-admin-section="requests">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+          Service Requests
+          <span class="nav-badge" id="badge-requests">0</span>
+        </a>
+        <a href="#" data-admin-section="transactions">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+          Transactions
+        </a>
+        <a href="#" data-admin-section="grievances">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+          Grievances
+        </a>
+      </div>
+      <div class="admin-nav-section">
+        <div class="admin-nav-label">Content</div>
+        <a href="#" data-admin-section="schemes">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          Schemes
+        </a>
+        <a href="#" data-admin-section="audit">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+          Audit Logs
+        </a>
+      </div>
+    </nav>
+
+    <div class="admin-sidebar-footer">
+      <div class="admin-user-pill">
+        <div class="admin-user-avatar">A</div>
+        <div>
+          <div class="admin-user-name">Administrator</div>
+          <div class="admin-user-role">Super Admin</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="admin-main">
+    <!-- Top bar -->
+    <div class="admin-topbar">
+      <div id="admin-page-title" class="admin-topbar-title">Dashboard Overview</div>
+      <div class="admin-topbar-actions">
+        <button class="admin-icon-btn" id="refresh-all-btn" title="Refresh data" aria-label="Refresh">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+        </button>
+        <button class="admin-logout-btn" id="admin-logout">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px;"><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg>
+          Logout
+        </button>
+      </div>
+    </div>
+
+    <main id="main-content" class="admin-content">
+
+      <!-- ===== OVERVIEW ===== -->
+      <section id="admin-section-overview">
+        <!-- Metrics -->
+        <div class="admin-metrics">
+          <div class="metric-card blue">
+            <div class="metric-card-header">
+              <span class="metric-label">Total Users</span>
+              <div class="metric-icon blue">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#4d8af0"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+              </div>
+            </div>
+            <div class="metric-value" id="metric-users">0</div>
+            <div class="metric-change neutral" id="metric-users-change">Loading...</div>
+          </div>
+          <div class="metric-card green">
+            <div class="metric-card-header">
+              <span class="metric-label">Active Accounts</span>
+              <div class="metric-icon green">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#2ECC71"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+              </div>
+            </div>
+            <div class="metric-value" id="metric-accounts">0</div>
+            <div class="metric-change up" id="metric-accounts-change">Active</div>
+          </div>
+          <div class="metric-card orange">
+            <div class="metric-card-header">
+              <span class="metric-label">Pending Requests</span>
+              <div class="metric-icon orange">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#E67E22"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+              </div>
+            </div>
+            <div class="metric-value" id="metric-pending">0</div>
+            <div class="metric-change" id="metric-pending-change" style="color:rgba(255,255,255,0.35);">Needs attention</div>
+          </div>
+          <div class="metric-card purple">
+            <div class="metric-card-header">
+              <span class="metric-label">Total Transactions</span>
+              <div class="metric-icon purple">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#9b59b6"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+              </div>
+            </div>
+            <div class="metric-value" id="metric-transactions">₹0</div>
+            <div class="metric-change up" id="metric-txn-change">This month</div>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="admin-charts-grid">
+          <div class="admin-chart-card">
+            <div class="admin-chart-header">
+              <div>
+                <div class="admin-chart-title">Request Activity</div>
+                <div class="admin-chart-sub">Approved vs Pending vs Rejected</div>
+              </div>
+              <div class="chart-period-btns">
+                <button class="chart-period-btn active">6M</button>
+                <button class="chart-period-btn">1Y</button>
+              </div>
+            </div>
+            <div style="height:240px;"><canvas id="admin-requests-chart"></canvas></div>
+          </div>
+          <div class="admin-chart-card">
+            <div class="admin-chart-header">
+              <div>
+                <div class="admin-chart-title">User Growth</div>
+                <div class="admin-chart-sub">New registrations</div>
+              </div>
+            </div>
+            <div style="height:240px;"><canvas id="admin-users-chart"></canvas></div>
+          </div>
+        </div>
+
+        <!-- Pending requests table -->
+        <div class="admin-table-card">
+          <div class="admin-table-header">
+            <div class="admin-table-title">Pending Service Requests</div>
+            <div class="admin-table-actions">
+              <button class="admin-btn admin-btn-ghost" id="refresh-requests">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+                Refresh
+              </button>
+            </div>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="dark-table">
+              <thead><tr>
+                <th>Ref #</th><th>User</th><th>Service</th><th>Date</th><th>Status</th><th>Action</th>
+              </tr></thead>
+              <tbody id="pending-requests-tbody">
+                <tr><td colspan="6" style="text-align:center;padding:32px;color:rgba(255,255,255,0.25);">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== USERS ===== -->
+      <section id="admin-section-users" style="display:none;">
+        <div class="admin-table-card">
+          <div class="admin-table-header">
+            <div class="admin-table-title">User Management</div>
+            <div class="admin-table-actions">
+              <input type="search" class="admin-search-input" id="user-search" placeholder="Search name or phone...">
+              <select class="admin-select" id="user-status-filter">
+                <option value="all">All Status</option>
+                <option value="pending">Pending KYC</option>
+                <option value="approved">Approved</option>
+                <option value="suspended">Suspended</option>
+              </select>
+              <button class="admin-btn admin-btn-ghost" id="export-users-btn">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Export
+              </button>
+            </div>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="dark-table">
+              <thead><tr>
+                <th>User</th><th>Phone</th><th>KYC Status</th><th>Registered</th><th>Actions</th>
+              </tr></thead>
+              <tbody id="users-tbody">
+                <tr><td colspan="5" style="text-align:center;padding:32px;color:rgba(255,255,255,0.25);">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== REQUESTS ===== -->
+      <section id="admin-section-requests" style="display:none;">
+        <div class="admin-table-card">
+          <div class="admin-table-header">
+            <div class="admin-table-title">All Service Requests</div>
+            <div class="admin-table-actions">
+              <select class="admin-select" id="req-status-filter">
+                <option value="all">All Status</option>
+                <option value="pending">Pending</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+              </select>
+            </div>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="dark-table">
+              <thead><tr>
+                <th>Ref #</th><th>User</th><th>Type</th><th>Date</th><th>Status</th><th>Action</th>
+              </tr></thead>
+              <tbody id="all-requests-tbody">
+                <tr><td colspan="6" style="text-align:center;padding:32px;color:rgba(255,255,255,0.25);">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== TRANSACTIONS ===== -->
+      <section id="admin-section-transactions" style="display:none;">
+        <div class="admin-table-card">
+          <div class="admin-table-header">
+            <div class="admin-table-title">Transaction Reports</div>
+            <div class="admin-table-actions">
+              <button class="admin-btn admin-btn-ghost" id="export-txn-admin-btn">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Export CSV
+              </button>
+            </div>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="dark-table">
+              <thead><tr>
+                <th>Transaction ID</th><th>User</th><th>Type</th><th>Amount</th><th>Date</th><th>Status</th>
+              </tr></thead>
+              <tbody id="admin-txn-tbody">
+                <tr><td colspan="6" style="text-align:center;padding:32px;color:rgba(255,255,255,0.25);">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== GRIEVANCES ===== -->
+      <section id="admin-section-grievances" style="display:none;">
+        <div class="admin-table-card">
+          <div class="admin-table-header">
+            <div class="admin-table-title">Grievance Management</div>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="dark-table">
+              <thead><tr>
+                <th>Ref #</th><th>Name</th><th>Category</th><th>Date</th><th>Status</th><th>Action</th>
+              </tr></thead>
+              <tbody id="grievances-tbody">
+                <tr><td colspan="6" style="text-align:center;padding:32px;color:rgba(255,255,255,0.25);">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SCHEMES ===== -->
+      <section id="admin-section-schemes" style="display:none;">
+        <div class="admin-table-card">
+          <div class="admin-table-header">
+            <div class="admin-table-title">Scheme Management</div>
+            <button class="admin-btn admin-btn-primary" id="add-scheme-btn">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+              Add Scheme
+            </button>
+          </div>
+          <div id="admin-schemes-list" style="padding:24px;">
+            <p style="color:rgba(255,255,255,0.3);">Loading schemes...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== AUDIT LOGS ===== -->
+      <section id="admin-section-audit" style="display:none;">
+        <div class="admin-table-card">
+          <div class="admin-table-header">
+            <div class="admin-table-title">Audit Logs</div>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="dark-table">
+              <thead><tr>
+                <th>Timestamp</th><th>User ID</th><th>Action</th><th>Details</th>
+              </tr></thead>
+              <tbody id="audit-tbody">
+                <tr><td colspan="4" style="text-align:center;padding:32px;color:rgba(255,255,255,0.25);">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- APPROVE/REJECT MODAL -->
+<div class="dark-modal-overlay" id="action-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="dark-modal">
+    <div class="dark-modal-header">
+      <span class="dark-modal-title" id="modal-title">Review Request</span>
+      <button class="dark-modal-close" id="modal-close" aria-label="Close">&#x2715;</button>
+    </div>
+    <div style="display:grid;gap:10px;margin-bottom:20px;background:rgba(255,255,255,0.03);border-radius:12px;padding:16px;">
+      <div style="display:flex;justify-content:space-between;"><span style="color:rgba(255,255,255,0.4);font-size:13px;">Ref #</span><span style="color:white;font-family:var(--font-mono);font-size:13px;" id="modal-req-id"></span></div>
+      <div style="display:flex;justify-content:space-between;"><span style="color:rgba(255,255,255,0.4);font-size:13px;">User</span><span style="color:white;font-size:13px;" id="modal-req-user"></span></div>
+      <div style="display:flex;justify-content:space-between;"><span style="color:rgba(255,255,255,0.4);font-size:13px;">Type</span><span style="color:white;font-size:13px;" id="modal-req-type"></span></div>
+    </div>
+    <p style="color:rgba(255,255,255,0.5);font-size:13px;margin-bottom:16px;" id="modal-req-desc"></p>
+    <label>Rejection Reason (optional)</label>
+    <textarea id="rejection-reason" class="dark-input" rows="3" placeholder="Reason for rejection..."></textarea>
+    <div class="dark-modal-actions">
+      <button class="admin-btn admin-btn-success" id="approve-btn" style="flex:1;justify-content:center;padding:12px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        Approve
+      </button>
+      <button class="admin-btn admin-btn-danger" id="reject-btn" style="flex:1;justify-content:center;padding:12px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        Reject
+      </button>
+    </div>
+  </div>
+</div>
+
+<button class="admin-sidebar-toggle" id="admin-sidebar-toggle" aria-label="Toggle sidebar">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+</button>
+
+<div id="toast-container" style="position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:10px;" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script type="module" src="js/firebase-config.js"></script>
+<script type="module" src="js/ui.js"></script>
+<script type="module" src="js/admin.js"></script>
+<script>
+  // Sidebar toggle
+  const sidebar = document.getElementById('admin-sidebar');
+  document.getElementById('admin-sidebar-toggle')?.addEventListener('click', () => sidebar.classList.toggle('open'));
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && !document.getElementById('admin-sidebar-toggle').contains(e.target)) {
+      sidebar.classList.remove('open');
+    }
+  });
+  // Modal close
+  document.getElementById('modal-close')?.addEventListener('click', () => {
+    document.getElementById('action-modal').classList.remove('active');
+  });
+  document.getElementById('action-modal')?.addEventListener('click', (e) => {
+    if (e.target === document.getElementById('action-modal')) {
+      document.getElementById('action-modal').classList.remove('active');
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "ippb-website",
+  "version": "1.0.0",
+  "description": "IPPB Service Center Website",
+  "scripts": {
+    "deploy": "firebase deploy",
+    "deploy:hosting": "firebase deploy --only hosting",
+    "deploy:rules": "firebase deploy --only firestore:rules"
+  },
+  "devDependencies": {
+    "firebase-tools": "^13.0.0"
+  }
+}

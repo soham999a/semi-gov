@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grievance Redressal - IPPB Service Center</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/accessibility.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .page-hero { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; padding: var(--spacing-3xl) var(--spacing-lg); text-align: center; }
+    .page-hero h1 { color: white; margin-bottom: var(--spacing-sm); }
+    .page-hero p { opacity: 0.88; font-size: 18px; max-width: 600px; margin: 0 auto; }
+    .grievance-page { max-width: var(--max-width); margin: 0 auto; padding: var(--spacing-3xl) var(--spacing-lg); display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-3xl); }
+    .process-steps { display: flex; flex-direction: column; gap: var(--spacing-md); margin-bottom: var(--spacing-2xl); }
+    .process-step { display: flex; gap: var(--spacing-md); align-items: flex-start; padding: var(--spacing-md); background: var(--surface-low); border-radius: var(--radius-lg); }
+    .process-step-num { width: 36px; height: 36px; border-radius: 50%; background: var(--primary-mid); color: white; display: flex; align-items: center; justify-content: center; font-family: var(--font-headline); font-weight: 800; font-size: 14px; flex-shrink: 0; }
+    .process-step h4 { font-size: 15px; margin-bottom: 4px; }
+    .process-step p { font-size: 13px; color: var(--on-surface-variant); margin: 0; }
+    .escalation-box { background: rgba(231,76,60,0.06); border: 1px solid rgba(231,76,60,0.2); border-radius: var(--radius-xl); padding: var(--spacing-xl); margin-top: var(--spacing-xl); }
+    .escalation-box h4 { color: var(--danger); margin-bottom: var(--spacing-sm); }
+    .escalation-box p { font-size: 14px; color: var(--on-surface-variant); margin-bottom: var(--spacing-sm); }
+    .escalation-box a { color: var(--primary-mid); font-weight: 600; }
+    .track-box { background: var(--surface-lowest); border: 1px solid var(--surface-high); border-radius: var(--radius-xl); padding: var(--spacing-xl); margin-top: var(--spacing-xl); }
+    @media (max-width: 768px) { .grievance-page { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <nav class="navbar" role="navigation">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="9" fill="#002361"/><path d="M7 25V9h5.5l4.5 9.5L21.5 9H27v16h-4V15.5L19.5 25h-5L11 15.5V25H7z" fill="white"/></svg>
+        <span>India Post Payments Bank</span>
+      </a>
+      <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="navbar-menu" id="navbar-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="navbar-actions">
+        <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Open Account</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <div class="page-hero">
+      <h1>Grievance Redressal</h1>
+      <p>We take every complaint seriously. Our dedicated team resolves grievances within 30 days as per RBI guidelines.</p>
+    </div>
+
+    <div class="grievance-page">
+      <!-- Form -->
+      <div>
+        <h2 style="margin-bottom:var(--spacing-xl);">Submit a Complaint</h2>
+        <form id="grievance-form" novalidate>
+          <div class="form-group">
+            <label for="g-name">Full Name *</label>
+            <input type="text" id="g-name" class="form-input" placeholder="Your full name" required>
+            <span class="form-error" id="g-name-error" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="g-phone">Mobile Number *</label>
+            <input type="tel" id="g-phone" class="form-input" placeholder="10-digit mobile number" maxlength="10" required>
+            <span class="form-error" id="g-phone-error" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="g-account">Account Number (if applicable)</label>
+            <input type="text" id="g-account" class="form-input" placeholder="IPPB account number" style="font-family:var(--font-mono);">
+          </div>
+          <div class="form-group">
+            <label for="g-category">Complaint Category *</label>
+            <select id="g-category" class="form-input" required>
+              <option value="">Select category</option>
+              <option value="account_opening">Account Opening Issue</option>
+              <option value="transaction">Transaction Dispute</option>
+              <option value="aeps">AEPS Service Issue</option>
+              <option value="dbt">DBT / Government Scheme</option>
+              <option value="card">Debit Card Issue</option>
+              <option value="staff">Staff Behaviour</option>
+              <option value="fraud">Fraud / Unauthorized Transaction</option>
+              <option value="other">Other</option>
+            </select>
+            <span class="form-error" id="g-category-error" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="g-date">Date of Incident *</label>
+            <input type="date" id="g-date" class="form-input" required>
+            <span class="form-error" id="g-date-error" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="g-desc">Complaint Description *</label>
+            <textarea id="g-desc" class="form-input" rows="5" placeholder="Describe your complaint in detail. Include transaction IDs, dates, and amounts if applicable." required></textarea>
+            <span class="form-error" id="g-desc-error" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="g-resolution">Expected Resolution</label>
+            <textarea id="g-resolution" class="form-input" rows="3" placeholder="What resolution are you expecting?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="grievance-submit-btn">Submit Complaint</button>
+          <p style="font-size:13px;color:var(--on-surface-variant);margin-top:var(--spacing-md);text-align:center;">You will receive a complaint reference number after submission. Resolution within 30 days as per RBI guidelines.</p>
+        </form>
+
+        <div class="track-box">
+          <h4 style="margin-bottom:var(--spacing-md);">Track Existing Complaint</h4>
+          <div style="display:flex;gap:var(--spacing-sm);">
+            <input type="text" id="track-ref" class="form-input" placeholder="Enter reference number (e.g. GRV-XXXXXX)" style="flex:1;">
+            <button class="btn btn-secondary" id="track-btn" style="min-width:auto;padding:13px 20px;">Track</button>
+          </div>
+          <div id="track-result" style="margin-top:var(--spacing-md);display:none;"></div>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div>
+        <h2 style="margin-bottom:var(--spacing-xl);">Grievance Process</h2>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="process-step-num">1</div>
+            <div>
+              <h4>Submit Complaint</h4>
+              <p>Fill the form with complete details. You'll receive a reference number immediately.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-step-num">2</div>
+            <div>
+              <h4>Acknowledgement</h4>
+              <p>We acknowledge your complaint within 3 working days via SMS/email.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-step-num">3</div>
+            <div>
+              <h4>Investigation</h4>
+              <p>Our team investigates the issue and may contact you for additional information.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-step-num">4</div>
+            <div>
+              <h4>Resolution</h4>
+              <p>We resolve and communicate the outcome within 30 days as per RBI mandate.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--surface-low);border-radius:var(--radius-xl);padding:var(--spacing-xl);margin-bottom:var(--spacing-lg);">
+          <h4 style="margin-bottom:var(--spacing-md);">Contact for Urgent Issues</h4>
+          <div style="display:flex;flex-direction:column;gap:var(--spacing-sm);">
+            <div style="display:flex;align-items:center;gap:var(--spacing-md);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--primary-mid)"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              <span style="font-weight:600;">1800-XXX-XXXX</span> <span style="font-size:13px;color:var(--on-surface-variant);">(Toll Free, 24/7 for fraud)</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--spacing-md);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--primary-mid)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <span style="font-weight:600;">grievance@ippb.gov.in</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="escalation-box">
+          <h4>Escalation — Banking Ombudsman</h4>
+          <p>If your complaint is not resolved within 30 days or you are not satisfied with the resolution, you may escalate to the RBI Banking Ombudsman.</p>
+          <p><a href="https://cms.rbi.org.in" target="_blank" rel="noopener">RBI Complaint Management System (CMS)</a> — cms.rbi.org.in</p>
+          <p>Toll Free: 14448 (RBI)</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section"><span class="footer-logo">IPPB</span><p>India Post Payments Bank — Regulated by RBI.</p></div>
+      <div class="footer-section"><h4>Quick Links</h4><ul><li><a href="about.html">About</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-section"><h4>Legal</h4><ul><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
+      <div class="footer-section"><h4>Support</h4><ul><li>1800-XXX-XXXX</li><li>grievance@ippb.gov.in</li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 India Post Payments Bank.</span><span>Regulated by Reserve Bank of India</span></div>
+  </footer>
+
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+  <script type="module">
+    import { db } from './js/firebase-config.js';
+    import { addDoc, collection, query, where, getDocs, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+    import { showToast, setButtonLoading } from './js/ui.js';
+    import { validatePhone, showError, clearAllErrors } from './js/validation.js';
+
+    document.getElementById('grievance-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearAllErrors('grievance-form');
+      const name = document.getElementById('g-name').value.trim();
+      const phone = document.getElementById('g-phone').value.trim();
+      const category = document.getElementById('g-category').value;
+      const date = document.getElementById('g-date').value;
+      const desc = document.getElementById('g-desc').value.trim();
+      let valid = true;
+      if (!name) { showError('g-name', 'Name is required'); valid = false; }
+      if (!validatePhone(phone)) { showError('g-phone', 'Enter valid 10-digit number'); valid = false; }
+      if (!category) { showError('g-category', 'Select a category'); valid = false; }
+      if (!date) { showError('g-date', 'Date is required'); valid = false; }
+      if (desc.length < 20) { showError('g-desc', 'Please provide more detail (min 20 characters)'); valid = false; }
+      if (!valid) return;
+
+      const btn = document.getElementById('grievance-submit-btn');
+      setButtonLoading(btn, true, 'Submitting...');
+      try {
+        const refId = 'GRV-' + Date.now().toString(36).toUpperCase();
+        await addDoc(collection(db, 'grievances'), {
+          refId, name, phone,
+          accountNumber: document.getElementById('g-account').value.trim(),
+          category, incidentDate: date, description: desc,
+          expectedResolution: document.getElementById('g-resolution').value.trim(),
+          status: 'submitted', createdAt: serverTimestamp()
+        });
+        showToast(`Complaint submitted! Reference: ${refId}`, 'success', 8000);
+        e.target.reset();
+      } catch (err) {
+        showToast('Failed to submit. Please try again.', 'error');
+      } finally { setButtonLoading(btn, false); }
+    });
+
+    document.getElementById('track-btn').addEventListener('click', async () => {
+      const ref = document.getElementById('track-ref').value.trim().toUpperCase();
+      const result = document.getElementById('track-result');
+      if (!ref) { result.style.display = 'none'; return; }
+      result.style.display = 'block';
+      result.innerHTML = '<p style="color:var(--on-surface-variant);">Searching...</p>';
+      try {
+        const q = query(collection(db, 'grievances'), where('refId', '==', ref));
+        const snap = await getDocs(q);
+        if (snap.empty) {
+          result.innerHTML = '<p style="color:var(--danger);font-weight:600;">No complaint found with this reference number.</p>';
+        } else {
+          const d = snap.docs[0].data();
+          const statusColor = d.status === 'resolved' ? 'var(--success)' : d.status === 'in_progress' ? 'var(--warning)' : 'var(--primary-mid)';
+          result.innerHTML = `
+            <div style="background:var(--surface-low);border-radius:var(--radius-lg);padding:var(--spacing-md);">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--spacing-sm);">
+                <strong>${d.refId}</strong>
+                <span style="color:${statusColor};font-weight:700;font-size:13px;text-transform:uppercase;">${d.status}</span>
+              </div>
+              <p style="font-size:13px;color:var(--on-surface-variant);margin:0;">Category: ${d.category?.replace(/_/g,' ').toUpperCase()}</p>
+            </div>`;
+        }
+      } catch { result.innerHTML = '<p style="color:var(--danger);">Error fetching status.</p>'; }
+    });
+  </script>
+</body>
+</html>
