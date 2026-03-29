@@ -40,12 +40,17 @@ export function setButtonLoading(btn, loading, text = '') {
 }
 
 // ===== MODAL =====
+let _modalScrollY = 0;
+
 export function openModal(id) {
   const overlay = document.getElementById(id);
   if (overlay) {
     overlay.classList.add('active');
     overlay.querySelector('.modal')?.focus();
-    document.body.style.overflow = 'hidden';
+    _modalScrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${_modalScrollY}px`;
+    document.body.style.width = '100%';
   }
 }
 
@@ -53,7 +58,10 @@ export function closeModal(id) {
   const overlay = document.getElementById(id);
   if (overlay) {
     overlay.classList.remove('active');
-    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, _modalScrollY);
   }
 }
 
@@ -77,19 +85,51 @@ function initNavbar() {
   const menu = document.getElementById('navbar-menu');
   if (!toggle || !menu) return;
 
-  toggle.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('open');
-    toggle.classList.toggle('open', isOpen);
-    toggle.setAttribute('aria-expanded', isOpen);
+  let scrollY = 0;
+
+  function openMenu() {
+    scrollY = window.scrollY;
+    menu.classList.add('open');
+    toggle.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    // iOS Safari scroll lock fix
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+  }
+
+  function closeMenu() {
+    menu.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    // Restore scroll position
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollY);
+    toggle.focus();
+  }
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menu.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  // Close when clicking a nav link (not the CTA buttons)
+  menu.querySelectorAll('li:not(.navbar-menu-actions) > a').forEach(a => {
+    a.addEventListener('click', closeMenu);
   });
 
   // Close on outside click
   document.addEventListener('click', (e) => {
-    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
-      menu.classList.remove('open');
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !toggle.contains(e.target)) {
+      closeMenu();
     }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
   });
 }
 
