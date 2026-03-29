@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="40" viewBox="0 0 120 40">
+  <rect width="40" height="40" rx="8" fill="#1B3A7D"/>
+  <path d="M8 32V8h8l6 14 6-14h8v24h-6V18l-5 14h-6L14 18v14H8z" fill="white"/>
+  <text x="48" y="26" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#1B3A7D">IPPB</text>
+</svg>

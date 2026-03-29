@@ -1,0 +1,33 @@
+{
+  "rewrites": [
+    { "source": "/contact",         "destination": "/contact.html" },
+    { "source": "/services",        "destination": "/services.html" },
+    { "source": "/login",           "destination": "/login.html" },
+    { "source": "/register",        "destination": "/register.html" },
+    { "source": "/dashboard",       "destination": "/dashboard.html" },
+    { "source": "/admin-dashboard", "destination": "/admin-dashboard.html" },
+    { "source": "/about",           "destination": "/about.html" },
+    { "source": "/faq",             "destination": "/faq.html" },
+    { "source": "/grievance",       "destination": "/grievance.html" },
+    { "source": "/privacy-policy",  "destination": "/privacy-policy.html" },
+    { "source": "/terms",           "destination": "/terms.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options",        "value": "DENY" },
+        { "key": "X-XSS-Protection",       "value": "1; mode=block" },
+        { "key": "Referrer-Policy",        "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/sw.js",
+      "headers": [
+        { "key": "Cache-Control",          "value": "no-cache" },
+        { "key": "Service-Worker-Allowed", "value": "/" }
+      ]
+    }
+  ]
+}

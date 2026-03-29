@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found - IPPB</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <style>
+    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: var(--bg-light); text-align: center; padding: var(--spacing-md); }
+    .error-container { max-width: 480px; }
+    .error-code { font-size: 120px; font-weight: 700; color: var(--primary-blue); line-height: 1; margin-bottom: var(--spacing-md); }
+    .error-title { font-size: 28px; margin-bottom: var(--spacing-md); }
+    .error-desc { color: var(--text-secondary); margin-bottom: var(--spacing-2xl); }
+  </style>
+</head>
+<body>
+  <div class="error-container fade-in">
+    <div class="error-code">404</div>
+    <h1 class="error-title">Page Not Found</h1>
+    <p class="error-desc">The page you're looking for doesn't exist or has been moved.</p>
+    <div style="display:flex;gap:var(--spacing-md);justify-content:center;flex-wrap:wrap;">
+      <a href="index.html" class="btn btn-primary">Go Home</a>
+      <a href="contact.html" class="btn btn-secondary">Contact Support</a>
+    </div>
+  </div>
+</body>
+</html>

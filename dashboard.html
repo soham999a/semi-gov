@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - IPPB Service Center</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/accessibility.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="9" fill="#002361"/><path d="M7 25V9h5.5l4.5 9.5L21.5 9H27v16h-4V15.5L19.5 25h-5L11 15.5V25H7z" fill="white"/></svg>
+        <span>IPPB</span>
+      </a>
+      <div class="navbar-actions">
+        <span id="nav-user-name" style="font-weight:600;color:var(--on-surface);font-size:14px;"></span>
+        <button class="btn btn-secondary btn-sm" id="logout-btn">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar" id="dashboard-sidebar" aria-label="Dashboard navigation">
+      <div class="sidebar-user">
+        <div class="sidebar-avatar" id="sidebar-avatar" aria-hidden="true">U</div>
+        <div class="sidebar-user-name" id="sidebar-name">Loading...</div>
+        <div class="sidebar-user-phone" id="sidebar-phone"></div>
+      </div>
+      <nav class="sidebar-menu" role="navigation" aria-label="Dashboard menu">
+        <a href="#overview" class="active" data-section="overview">
+          <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg></span>
+          <span class="menu-label">Dashboard</span>
+        </a>
+        <a href="#accounts" data-section="accounts">
+          <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg></span>
+          <span class="menu-label">My Accounts</span>
+        </a>
+        <a href="#transactions" data-section="transactions">
+          <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></span>
+          <span class="menu-label">Transactions</span>
+        </a>
+        <a href="#requests" data-section="requests">
+          <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></span>
+          <span class="menu-label">Request Services</span>
+        </a>
+        <a href="#schemes" data-section="schemes">
+          <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>
+          <span class="menu-label">Schemes</span>
+        </a>
+        <a href="#profile" data-section="profile">
+          <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></span>
+          <span class="menu-label">Profile</span>
+        </a>
+        <a href="#support" data-section="support">
+          <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+          <span class="menu-label">Support</span>
+        </a>
+      </nav>
+      <div class="sidebar-logout">
+        <button class="btn btn-danger btn-sm btn-full" id="sidebar-logout">Logout</button>
+      </div>
+    </aside>
+
+    <main id="main-content" class="dashboard-main">
+
+      <!-- OVERVIEW -->
+      <section id="section-overview" class="dashboard-section-wrapper">
+        <div class="welcome-banner">
+          <div class="welcome-text">
+            <h2>Welcome back, <span id="welcome-name">User</span></h2>
+            <p id="last-login">Loading...</p>
+          </div>
+          <div class="welcome-stats">
+            <div class="welcome-stat">
+              <div class="welcome-stat-value" id="stat-balance">₹0</div>
+              <div class="welcome-stat-label">Total Balance</div>
+            </div>
+            <div class="welcome-stat">
+              <div class="welcome-stat-value" id="stat-services">5</div>
+              <div class="welcome-stat-label">Active Services</div>
+            </div>
+            <div class="welcome-stat">
+              <div class="welcome-stat-value" id="stat-pending">0</div>
+              <div class="welcome-stat-label">Pending Requests</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accounts -->
+        <div class="dashboard-section">
+          <div class="dashboard-section-header">
+            <h3>Your Accounts</h3>
+            <a href="#accounts" class="btn btn-secondary btn-sm" data-section="accounts">View All</a>
+          </div>
+          <div class="accounts-grid" id="accounts-grid"></div>
+        </div>
+
+        <!-- Charts row -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-lg);margin-bottom:var(--spacing-xl);">
+          <div class="dashboard-section" style="margin-bottom:0;">
+            <div class="dashboard-section-header">
+              <h3>Balance Trend</h3>
+              <span style="font-size:12px;color:var(--on-surface-variant);">Last 6 months</span>
+            </div>
+            <div style="height:200px;"><canvas id="balance-trend-chart"></canvas></div>
+          </div>
+          <div class="dashboard-section" style="margin-bottom:0;">
+            <div class="dashboard-section-header">
+              <h3>Transaction Breakdown</h3>
+            </div>
+            <div style="height:200px;"><canvas id="spending-chart"></canvas></div>
+          </div>
+        </div>
+
+        <!-- Recent Transactions -->
+        <div class="dashboard-section">
+          <div class="dashboard-section-header">
+            <h3>Recent Transactions</h3>
+            <a href="#transactions" class="btn btn-secondary btn-sm" data-section="transactions">View All</a>
+          </div>
+          <div id="recent-transactions"></div>
+        </div>
+
+        <!-- Active Schemes -->
+        <div class="dashboard-section">
+          <div class="dashboard-section-header">
+            <h3>Active Schemes</h3>
+            <a href="#schemes" class="btn btn-secondary btn-sm" data-section="schemes">View All</a>
+          </div>
+          <div class="schemes-grid" id="schemes-grid"></div>
+        </div>
+      </section>
+
+      <!-- ACCOUNTS -->
+      <section id="section-accounts" class="dashboard-section-wrapper" style="display:none;">
+        <div class="dashboard-section">
+          <div class="dashboard-section-header"><h3>My Accounts</h3></div>
+          <div class="accounts-grid" id="all-accounts-grid"></div>
+        </div>
+      </section>
+
+      <!-- TRANSACTIONS -->
+      <section id="section-transactions" class="dashboard-section-wrapper" style="display:none;">
+        <div class="dashboard-section">
+          <div class="dashboard-section-header">
+            <h3>Transaction History</h3>
+            <div style="display:flex;gap:var(--spacing-sm);align-items:center;">
+              <select class="form-input" id="txn-filter" style="min-height:unset;padding:8px 12px;width:auto;font-size:13px;">
+                <option value="all">All Types</option>
+                <option value="credit">Credits Only</option>
+                <option value="debit">Debits Only</option>
+              </select>
+              <button class="btn btn-secondary btn-sm" id="export-txn-btn" title="Export to CSV">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Export
+              </button>
+            </div>
+          </div>
+          <div id="all-transactions"></div>
+        </div>
+      </section>
+
+      <!-- REQUESTS -->
+      <section id="section-requests" class="dashboard-section-wrapper" style="display:none;">
+        <div class="dashboard-section">
+          <div class="dashboard-section-header"><h3>Request a Service</h3></div>
+          <form id="service-request-form" novalidate style="max-width:600px;">
+            <div class="form-group">
+              <label for="req-type">Service Type *</label>
+              <select id="req-type" class="form-input" required>
+                <option value="">Select service</option>
+                <option value="cash_withdrawal">Cash Withdrawal</option>
+                <option value="deposit">Deposit</option>
+                <option value="personal_loan">Personal Loan Inquiry</option>
+                <option value="business_loan">Business Loan Inquiry</option>
+                <option value="insurance">Insurance Inquiry</option>
+                <option value="investment">Investment Consultation</option>
+                <option value="aadhaar_update">Aadhaar Update</option>
+                <option value="card_service">Card Service</option>
+                <option value="account_statement">Account Statement</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="req-amount">Amount (if applicable)</label>
+              <input type="number" id="req-amount" class="form-input" placeholder="Enter amount in Rs." min="0">
+            </div>
+            <div class="form-group">
+              <label for="req-desc">Description *</label>
+              <textarea id="req-desc" class="form-input" placeholder="Describe your request in detail..." required rows="4"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Preferred Contact Method</label>
+              <div style="display:flex;gap:var(--spacing-lg);margin-top:var(--spacing-sm);">
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:400;min-height:unset;"><input type="radio" name="contactMethod" value="phone" checked style="min-height:unset;"> Phone Call</label>
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:400;min-height:unset;"><input type="radio" name="contactMethod" value="sms" style="min-height:unset;"> SMS</label>
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:400;min-height:unset;"><input type="radio" name="contactMethod" value="email" style="min-height:unset;"> Email</label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Request</button>
+          </form>
+          <div class="divider" style="margin:var(--spacing-2xl) 0;"></div>
+          <h4 style="margin-bottom:var(--spacing-lg);">My Service Requests</h4>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead><tr><th>Ref #</th><th>Service</th><th>Date</th><th>Status</th></tr></thead>
+              <tbody id="requests-tbody"><tr><td colspan="4" style="text-align:center;color:var(--on-surface-variant);padding:24px;">No requests yet</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCHEMES -->
+      <section id="section-schemes" class="dashboard-section-wrapper" style="display:none;">
+        <div class="dashboard-section">
+          <div class="dashboard-section-header"><h3>Government Schemes</h3></div>
+          <div id="schemes-list"></div>
+        </div>
+      </section>
+
+      <!-- PROFILE -->
+      <section id="section-profile" class="dashboard-section-wrapper" style="display:none;">
+        <div class="dashboard-section">
+          <div class="dashboard-section-header">
+            <h3>My Profile</h3>
+            <a href="contact.html" class="btn btn-secondary btn-sm">Update at Center</a>
+          </div>
+          <div id="profile-details" style="max-width:520px;"></div>
+        </div>
+      </section>
+
+      <!-- SUPPORT -->
+      <section id="section-support" class="dashboard-section-wrapper" style="display:none;">
+        <div class="dashboard-section">
+          <div class="dashboard-section-header"><h3>Raise Support Ticket</h3></div>
+          <form id="support-form" novalidate style="max-width:600px;">
+            <div class="form-group">
+              <label for="ticket-subject">Subject *</label>
+              <input type="text" id="ticket-subject" class="form-input" placeholder="Brief description of issue" required>
+              <span class="form-error" id="ticket-subject-error" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="ticket-category">Category</label>
+              <select id="ticket-category" class="form-input">
+                <option value="account">Account Issue</option>
+                <option value="transaction">Transaction Issue</option>
+                <option value="card">Card Issue</option>
+                <option value="scheme">Scheme Issue</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ticket-desc">Description *</label>
+              <textarea id="ticket-desc" class="form-input" placeholder="Describe your issue in detail..." required rows="5"></textarea>
+              <span class="form-error" id="ticket-desc-error" role="alert"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Ticket</button>
+          </form>
+          <div style="margin-top:var(--spacing-xl);padding:var(--spacing-lg);background:var(--surface-low);border-radius:var(--radius-lg);">
+            <p style="font-size:14px;color:var(--on-surface-variant);">For urgent issues, call <strong style="color:var(--on-surface);">1800-XXX-XXXX</strong> (Toll Free, 24/7 for fraud) or visit <a href="grievance.html" style="color:var(--primary-mid);font-weight:600;">Grievance Portal</a></p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle sidebar">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+  </button>
+
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/ui.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

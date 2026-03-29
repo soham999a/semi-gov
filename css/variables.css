@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Public+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Brand Colors */
+  --primary:        #002361;
+  --primary-mid:    #1B3A7D;
+  --primary-light:  #264487;
+  --teal:           #16A085;
+  --success:        #2ECC71;
+  --warning:        #E67E22;
+  --danger:         #E74C3C;
+  --gold:           #F39C12;
+  --purple:         #8E44AD;
+
+  /* Surface System (Material 3 inspired) */
+  --surface:              #f7f9ff;
+  --surface-low:          #edf4ff;
+  --surface-lowest:       #ffffff;
+  --surface-high:         #d9eaff;
+  --surface-highest:      #d1e4fb;
+  --surface-dim:          #c9dcf3;
+
+  /* Text */
+  --on-surface:           #091d2e;
+  --on-surface-variant:   #444650;
+  --text-light:           #ffffff;
+  --text-muted:           #7F8C8D;
+
+  /* Legacy aliases (keep for compatibility) */
+  --primary-blue:   #1B3A7D;
+  --primary-dark:   #1A2F5E;
+  --secondary-teal: #16A085;
+  --success-green:  #2ECC71;
+  --warning-orange: #E67E22;
+  --danger-red:     #E74C3C;
+  --accent-gold:    #F39C12;
+  --accent-purple:  #8E44AD;
+  --text-dark:      #091d2e;
+  --text-secondary: #444650;
+  --bg-white:       #ffffff;
+  --bg-light:       #f7f9ff;
+  --bg-lighter:     #edf4ff;
+  --bg-dark:        #091d2e;
+
+  /* Typography */
+  --font-headline: 'Manrope', 'Segoe UI', sans-serif;
+  --font-body:     'Public Sans', 'Segoe UI', sans-serif;
+  --font-mono:     'Courier New', monospace;
+  --font-sans:     'Public Sans', 'Segoe UI', sans-serif;
+
+  /* Spacing */
+  --spacing-xs:  4px;
+  --spacing-sm:  8px;
+  --spacing-md:  16px;
+  --spacing-lg:  24px;
+  --spacing-xl:  32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+
+  /* Radius */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  24px;
+  --radius-full: 9999px;
+
+  /* Shadows — editorial, tonal */
+  --shadow-sm:  0px 2px 8px rgba(9,29,46,0.05);
+  --shadow-md:  0px 4px 16px rgba(9,29,46,0.08);
+  --shadow-lg:  0px 12px 32px rgba(9,29,46,0.10);
+  --shadow-xl:  0px 20px 48px rgba(9,29,46,0.14);
+
+  /* Transitions */
+  --transition-fast: 200ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 600ms ease;
+
+  /* Layout */
+  --max-width:      1200px;
+  --navbar-height:  68px;
+}

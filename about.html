@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About India Post Payments Bank - Government authorized banking partner serving rural and semi-urban India.">
+  <title>About Us - IPPB Service Center</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/accessibility.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .page-hero { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; padding: var(--spacing-3xl) var(--spacing-lg); text-align: center; }
+    .page-hero h1 { color: white; margin-bottom: var(--spacing-sm); }
+    .page-hero p { opacity: 0.88; font-size: 18px; max-width: 600px; margin: 0 auto; }
+    .about-section { max-width: var(--max-width); margin: 0 auto; padding: var(--spacing-3xl) var(--spacing-lg); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-3xl); align-items: center; margin-bottom: var(--spacing-3xl); }
+    .about-grid.reverse { direction: rtl; }
+    .about-grid.reverse > * { direction: ltr; }
+    .about-image { background: linear-gradient(135deg, var(--surface-high), var(--surface-highest)); border-radius: var(--radius-2xl); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; }
+    .about-image svg { opacity: 0.3; }
+    .about-content h2 { margin-bottom: var(--spacing-md); }
+    .about-content p { color: var(--on-surface-variant); line-height: 1.8; margin-bottom: var(--spacing-md); }
+    .about-content ul { display: flex; flex-direction: column; gap: var(--spacing-sm); margin-top: var(--spacing-md); }
+    .about-content li { display: flex; align-items: flex-start; gap: var(--spacing-sm); color: var(--on-surface-variant); font-size: 15px; }
+    .about-content li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--primary-mid); flex-shrink: 0; margin-top: 7px; }
+    .mission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-lg); margin-top: var(--spacing-2xl); }
+    .mission-card { background: var(--surface-lowest); border-radius: var(--radius-xl); padding: var(--spacing-xl); border: 1px solid var(--surface-high); text-align: center; box-shadow: var(--shadow-sm); }
+    .mission-icon { width: 64px; height: 64px; border-radius: 50%; background: rgba(27,58,125,0.08); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md); }
+    .mission-card h4 { margin-bottom: var(--spacing-sm); font-size: 18px; }
+    .mission-card p { color: var(--on-surface-variant); font-size: 14px; }
+    .stats-band { background: var(--primary); padding: var(--spacing-2xl) var(--spacing-lg); }
+    .stats-band-inner { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-lg); text-align: center; }
+    .stats-band-item .num { font-family: var(--font-headline); font-size: 40px; font-weight: 900; color: white; letter-spacing: -0.03em; }
+    .stats-band-item .lbl { font-size: 13px; color: rgba(255,255,255,0.75); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+    .team-section { background: var(--surface-low); padding: var(--spacing-3xl) var(--spacing-lg); }
+    .team-inner { max-width: var(--max-width); margin: 0 auto; }
+    .license-box { background: var(--surface-lowest); border: 2px solid var(--surface-high); border-radius: var(--radius-xl); padding: var(--spacing-xl); margin-top: var(--spacing-2xl); display: flex; align-items: flex-start; gap: var(--spacing-lg); }
+    .license-icon { width: 56px; height: 56px; background: rgba(27,58,125,0.08); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .license-box h4 { margin-bottom: var(--spacing-sm); }
+    .license-box p { color: var(--on-surface-variant); font-size: 14px; line-height: 1.7; margin: 0; }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } .about-image { display: none; } .mission-grid { grid-template-columns: 1fr; } .stats-band-inner { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="9" fill="#002361"/><path d="M7 25V9h5.5l4.5 9.5L21.5 9H27v16h-4V15.5L19.5 25h-5L11 15.5V25H7z" fill="white"/></svg>
+        <span>India Post Payments Bank</span>
+      </a>
+      <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="navbar-menu" id="navbar-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="navbar-actions">
+        <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Open Account</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <div class="page-hero">
+      <h1>About India Post Payments Bank</h1>
+      <p>Bringing banking to every doorstep — trusted by millions across India since 2018.</p>
+    </div>
+
+    <section class="about-section">
+      <div class="about-grid reveal">
+        <div class="about-content">
+          <span class="section-tag">Who We Are</span>
+          <h2>India's Most Accessible Bank</h2>
+          <p>India Post Payments Bank (IPPB) was established under the Department of Posts, Ministry of Communications, Government of India. It was incorporated as a Public Limited Company on 17th August 2016 and commenced operations on 1st September 2018.</p>
+          <p>IPPB has been set up with the vision to build the most accessible, affordable and trusted bank for the common man. It leverages the vast postal network of over 1.5 lakh post offices and 3 lakh postal employees to deliver banking services at the doorstep of every Indian.</p>
+          <ul>
+            <li>Incorporated under the Companies Act 2013</li>
+            <li>Licensed by Reserve Bank of India (RBI)</li>
+            <li>100% owned by Government of India</li>
+            <li>Operates through Department of Posts network</li>
+          </ul>
+        </div>
+        <div class="about-image">
+          <svg width="200" height="200" viewBox="0 0 24 24" fill="var(--primary)"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+        </div>
+      </div>
+
+      <div class="about-grid reverse reveal">
+        <div class="about-image">
+          <svg width="200" height="200" viewBox="0 0 24 24" fill="var(--primary)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        </div>
+        <div class="about-content">
+          <span class="section-tag">Our Mission</span>
+          <h2>Banking for Every Indian, Everywhere</h2>
+          <p>IPPB's mission is to remove barriers to financial inclusion by providing simple, affordable and accessible banking services to all citizens, especially those in rural and semi-urban areas who have historically been underserved by traditional banks.</p>
+          <ul>
+            <li>Financial inclusion for the last mile</li>
+            <li>Doorstep banking through Postmen and GDS</li>
+            <li>Paperless, presence-less, cashless banking</li>
+            <li>Interoperable with all banks via UPI and AEPS</li>
+            <li>Support for all government DBT schemes</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-bottom:var(--spacing-xl);">
+        <span class="section-tag">Our Values</span>
+        <h2>What Drives Us</h2>
+      </div>
+      <div class="mission-grid">
+        <div class="mission-card reveal stagger-1">
+          <div class="mission-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--primary-mid)"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          </div>
+          <h4>Trust</h4>
+          <p>Government-backed and RBI-regulated. Your money and data are always safe with us.</p>
+        </div>
+        <div class="mission-card reveal stagger-2">
+          <div class="mission-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--primary-mid)"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          </div>
+          <h4>Inclusion</h4>
+          <p>Reaching the unreached — every Indian deserves access to quality banking services.</p>
+        </div>
+        <div class="mission-card reveal stagger-3">
+          <div class="mission-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--primary-mid)"><path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 3.21-1.81 6-4.72 7.28L13 17v5h5l-1.22-1.22C19.91 19.07 22 15.76 22 12c0-5.18-3.95-9.45-9-9.95z"/><path d="M11 2.05C5.95 2.55 2 6.82 2 12c0 3.76 2.09 7.07 5.22 8.78L6 22h5v-5l-2.28 2.28C7.81 18 6 15.21 6 12c0-4.08 3.05-7.44 7-7.93V2.05z"/></svg>
+          </div>
+          <h4>Innovation</h4>
+          <p>Leveraging technology to deliver banking services faster, cheaper and more reliably.</p>
+        </div>
+      </div>
+
+      <div class="license-box reveal" style="margin-top:var(--spacing-3xl);">
+        <div class="license-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--primary-mid)"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+        </div>
+        <div>
+          <h4>Regulatory Information</h4>
+          <p>India Post Payments Bank Limited is licensed by the Reserve Bank of India to carry on the business of Payments Bank under Section 22(1) of the Banking Regulation Act, 1949. CIN: U64990DL2016GOI301897. Registered Office: Speed Post Centre, Market Road, New Delhi - 110001. IPPB is a member of Deposit Insurance and Credit Guarantee Corporation (DICGC). Deposits are insured up to Rs. 5 Lakhs per depositor.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="stats-band">
+      <div class="stats-band-inner">
+        <div class="stats-band-item reveal stagger-1">
+          <div class="num" data-target="50000000" data-suffix="+">50M+</div>
+          <div class="lbl">Customers Served</div>
+        </div>
+        <div class="stats-band-item reveal stagger-2">
+          <div class="num" data-target="150000" data-suffix="+">1.5L+</div>
+          <div class="lbl">Post Office Network</div>
+        </div>
+        <div class="stats-band-item reveal stagger-3">
+          <div class="num" data-target="300000" data-suffix="+">3L+</div>
+          <div class="lbl">Postmen & GDS</div>
+        </div>
+        <div class="stats-band-item reveal stagger-4">
+          <div class="num">2018</div>
+          <div class="lbl">Year Established</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="team-section">
+      <div class="team-inner">
+        <div style="text-align:center;margin-bottom:var(--spacing-2xl);">
+          <span class="section-tag">Our Service Center</span>
+          <h2>Authorized Partner Details</h2>
+          <p style="color:var(--on-surface-variant);max-width:560px;margin:var(--spacing-md) auto 0;">This website is operated by an authorized IPPB Service Center partner, providing all IPPB services locally.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--spacing-lg);">
+          <div class="mission-card reveal stagger-1">
+            <div class="mission-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primary-mid)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <h4>Location</h4>
+            <p>[Service Center Address]<br>[City, State - PIN]</p>
+          </div>
+          <div class="mission-card reveal stagger-2">
+            <div class="mission-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primary-mid)"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+            </div>
+            <h4>Working Hours</h4>
+            <p>Monday – Saturday<br>9:00 AM – 5:00 PM</p>
+          </div>
+          <div class="mission-card reveal stagger-3">
+            <div class="mission-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primary-mid)"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            </div>
+            <h4>Contact</h4>
+            <p>1800-XXX-XXXX<br>support@ippb.gov.in</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <span class="footer-logo">IPPB</span>
+        <p>India Post Payments Bank — Bringing banking to every doorstep across India. Regulated by RBI.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#banking">Banking</a></li>
+          <li><a href="services.html#aeps">AEPS</a></li>
+          <li><a href="services.html#schemes">Gov Schemes</a></li>
+          <li><a href="services.html#insurance">Insurance</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="grievance.html">Grievance</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <ul>
+          <li>1800-XXX-XXXX (Toll Free)</li>
+          <li>support@ippb.gov.in</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 India Post Payments Bank. All rights reserved.</span>
+      <span>Regulated by Reserve Bank of India</span>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+  <script type="module" src="js/ui.js"></script>
+  <script type="module">
+    import { animateCounter } from './js/utils.js';
+    // Animate stats when they come into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target.querySelector('.num');
+          const target = parseInt(entry.target.dataset.target || '0');
+          if (target && el) animateCounter(el, target, 1500, '', entry.target.dataset.suffix || '');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stats-band-item[data-target]').forEach(el => observer.observe(el));
+  </script>
+</html>
